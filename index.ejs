@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+      body {
+          font-family: 'Poppins';font-size: 18px;
+      }
+      </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lab 8</title>
+  </head>
+  <body>
+    <h1>Book Inventory</h1>
+    <h2> Add a new book here.</h2>
+    <form action="/books" method="POST">
+  <input type="text" placeholder="title" name="title" />
+  <input type="text" placeholder="author" name="author" />
+  <input type="text" placeholder="publisher" name="publisher" />
+  <input type="text" placeholder="date" name="date" />
+  <input type="url" placeholder="website" name="website" />
+  <button type="submit">Submit</button>
+</form>
+<h2>Inventory</h2>
+
+<ul class="books">
+  <!-- Loop through books -->
+  <% for(var i = 0; i < books.length; i++) {%>
+  <li class="book">
+    <!-- Output items from the iterated book object -->
+    <span><p style="color: grey; font-weight:bold ; display: inline">Title: </p><%= books[i].title %></span><br>
+    <span><p style="color: grey; font-weight:bold ; display: inline">Author: </p><%= books[i].author %></span><br>
+    <span><p style="color: grey; font-weight:bold ; display: inline">Publisher: </p><%= books[i].publisher %></span><br>
+    <span><p style="color: grey; font-weight:bold ; display: inline">Date: </p><%= books[i].date %></span><br>
+    <span><p style="color: grey; font-weight:bold ; display: inline">Website: </p>
+    <a href= <%=books[i].website %>><%= books[i].website %></a></span><br><br>
+  </li>
+  <% } %>
+</ul>
+</body>
+</html>
